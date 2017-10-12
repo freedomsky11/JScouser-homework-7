@@ -67,11 +67,25 @@
 //     }
 // ];
 
-  new Vue({
+  // new Vue({
+  //   el: '#app',   // #app 和html中div#id的 app 对应
+  //   data: {
+  //     wordsList: words  // 变量wordsList可以在html使用
+  //   }
+  // });
+
+  var vm = new Vue({
     el: '#app',   // #app 和html中div#id的 app 对应
     data: {
-      wordsList: words  // 变量wordsList可以在html使用
+      wordsList: []  // 变量wordsList可以在html使用
+    },
+    methods: {
+      fetchData () {
+            vm.wordsList = words;
+      }
     }
   });
+
+  setTimeout(function() {vm.fetchData();}, 5000);
 
 </script>
